@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8eee8">
+<meta name="description" content="A little birthday scrapbook made with love for Blu Blu.">
+<title>For Blu Blu 💌</title>
+<style>
+:root{--paper:#fffaf2;--ink:#493a39;--pink:#c8758a;--rose:#f4d9dc;--green:#71816b;--tape:#f4df9d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f8eee8;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;background-image:radial-gradient(#a88c7d .7px,transparent .7px);background-size:7px 7px}
+button,input{font:inherit}button{cursor:pointer}
+.wrap{width:min(920px,92%);margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 0;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+.music-btn,.secondary{border:1px solid #d8b9b8;background:#fff9f5;color:var(--ink);padding:9px 13px;border-radius:99px}
+.hero{position:relative;margin:18px auto 35px;padding:44px 19px 38px;text-align:center;background:var(--paper);border:1px solid #ead8cc;box-shadow:0 12px 35px #805f5014;transform:rotate(-.35deg);overflow:hidden}
+.tape-corner:before,.tape-corner:after{content:"";position:absolute;width:90px;height:23px;background:#f1d9a8b8;top:13px;left:-22px;transform:rotate(-35deg)}
+.tape-corner:after{left:auto;right:-22px;transform:rotate(35deg)}
+.eyebrow{letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:#9d6d73}
+h1{font-size:clamp(2.6rem,10vw,5rem);line-height:1.02;font-weight:normal;margin:12px 0}
+.subtitle{max-width:510px;margin:14px auto 24px}
+.primary{background:#bd7184;color:white;border:0;border-radius:6px;padding:12px 18px;box-shadow:3px 4px 0 #e7c1c7}
+.primary:active{transform:translate(2px,2px);box-shadow:1px 2px 0 #e7c1c7}
+.doodle{font-size:1.6rem;letter-spacing:.4em}
+.section-title{text-align:center;margin:44px 0 20px}
+.section-title .eyebrow{margin-bottom:4px}
+h2{font-size:clamp(1.8rem,6vw,2.7rem);font-weight:normal;line-height:1.15;margin:0}
+.memories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.polaroid{background:white;padding:10px 10px 15px;box-shadow:0 6px 16px #513c301b;transform:rotate(var(--tilt));align-self:start}
+.photo{height:170px;background:#eee0d7;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;color:#947d73;font-size:.85rem;padding:10px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.caption{text-align:center;padding-top:11px;font-size:.95rem;line-height:1.35}
+.tape{height:18px;width:75px;background:#f0d9a5c9;position:relative;margin:-21px auto 6px;z-index:2;transform:rotate(-4deg)}
+.note{background:#f5e8cf;padding:22px 20px;margin:30px auto;max-width:650px;box-shadow:0 5px 12px #4c392017;transform:rotate(.4deg)}
+.note p{margin:5px 0}.scribble{font-style:italic;color:#8d6268}
+.riddle{background:#fffaf5;border:1px dashed #d6a5a8;padding:24px 18px;text-align:center;max-width:650px;margin:20px auto}
+.question{font-size:1.12rem}
+.answer-row{display:flex;gap:8px;max-width:430px;margin:16px auto 5px}
+.answer-row input{width:100%;min-width:0;padding:11px;border:1px solid #d9c1b9;background:white;border-radius:5px;color:var(--ink)}
+.feedback{min-height:28px;font-size:.9rem;color:#9b5366}
+.secret{display:none;max-width:700px;margin:25px auto;background:#fffdf8;padding:25px 22px;border:1px solid #ead8cc;box-shadow:0 10px 30px #805f5014}
+.secret.show{display:block;animation:appear .7s ease}
+.letter{white-space:pre-line}.signature{font-style:italic;text-align:right;color:#9d6d73}
+footer{text-align:center;padding:36px 12px 48px;font-size:.9rem;color:#8e7770}
+.heart{display:inline-block;animation:beat 1.3s infinite}
+.confetti{position:fixed;top:-20px;pointer-events:none;z-index:20;animation:fall linear forwards}
+@keyframes beat{50%{transform:scale(1.22)}}@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes fall{to{transform:translateY(110vh) rotate(600deg);opacity:.1}}
+@media(min-width:620px){.memories{grid-template-columns:repeat(3,minmax(0,1fr))}.photo{height:220px}.hero{padding:60px 30px 48px}}
+@media(max-width:380px){.answer-row{flex-direction:column}.photo{height:145px}.topbar{font-size:.65rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <span>a tiny scrapbook for Blu Blu</span>
+  <button class="music-btn" id="musicBtn" type="button" aria-pressed="false">♫ Play our song</button>
+</header>
+<main>
+<section class="hero tape-corner" id="home">
+  <div class="doodle">✿ ♡ ✿</div>
+  <p class="eyebrow">made with love, just for you</p>
+  <h1>Happy Birthday,<br>Blu Blu!</h1>
+  <p class="subtitle">A tiny scrapbook for my favourite human: a few memories, a little chaos, a lot of love, and a reminder that life got luckier when you became part of it.</p>
+  <button class="primary" onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">Open your little surprise ↓</button>
+  <p style="margin:24px 0 0;font-size:.85rem;color:#a17b78">turn the page, birthday girl ✨</p>
+</section>
+
+<section id="memories">
+  <div class="section-title"><p class="eyebrow">pages from our story</p><h2>Little moments, big memories</h2></div>
+  <div class="memories">
+    <article class="polaroid" style="--tilt:-2deg">
+      <div class="tape"></div>
+      <div class="photo"><img src="photo1.jpg" alt="A favourite memory with Blu Blu" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">Add photo1.jpg here 📸</span></div>
+      <div class="caption">One of those moments I'll keep</div>
+    </article>
+    <article class="polaroid" style="--tilt:2deg">
+      <div class="tape"></div>
+      <div class="photo"><img src="photo2.jpg" alt="Another memory with Blu Blu" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">Add photo2.jpg here 🌷</span></div>
+      <div class="caption">Certified partners in random nonsense</div>
+    </article>
+    <article class="polaroid" style="--tilt:-1deg">
+      <div class="tape"></div>
+      <div class="photo"><img src="photo3.jpg" alt="A third memory with Blu Blu" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">Add photo3.jpg here 💗</span></div>
+      <div class="caption">More memories loading…</div>
+    </article>
+  </div>
+  <div class="note">
+    <p class="scribble">a tiny truth, Blu Blu…</p>
+    <p>You're the kind of friend who can make an ordinary day feel like a story worth keeping. Thanks for the laughs, the nonsense, the talks, and all the little moments that somehow become the big ones. I hope this year gives you as much happiness as you accidentally bring to the people around you.</p>
+    <p>Also, please remain the same adorable menace. It would be suspicious if you became sensible overnight. ♡</p>
+  </div>
+</section>
+
+<section id="unlock">
+  <div class="section-title"><p class="eyebrow">psst… one more page</p><h2>A little friendship riddle</h2></div>
+  <div class="riddle">
+    <p class="question">I'm built from trust, laughter, and showing up.<br>I grow through memories, even when days get tough.<br>I'm not a place, but I can feel like home.<br><strong>What am I, when we're never quite alone?</strong></p>
+    <p style="font-size:.85rem;color:#9b7773">Hint: it's the bond behind this whole scrapbook.</p>
+    <form id="riddleForm">
+      <div class="answer-row">
+        <input id="answer" type="text" autocomplete="off" placeholder="Type your answer…" aria-label="Riddle answer" required>
+        <button class="primary" type="submit">Unlock 💌</button>
+      </div>
+    </form>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+  </div>
+  <article class="secret" id="secret" aria-live="polite">
+    <p class="eyebrow">you found the hidden page ✨</p>
+    <h2>For you, Blu Blu <span class="heart">♡</span></h2>
+    <p class="letter">Happy birthday, Blu Blu! 💗
+
+I was going to write something cool and mysterious here, but you know me — so here's the honest version.
+
+I'm genuinely glad you're in my life. Thank you for being my friend, for making room for laughter and ridiculous conversations, and for being someone I can celebrate today. I hope you get the kind of happiness that stays after the cake is gone, the photos are posted, and everyone has finished singing at you.
+
+I hope this new year brings you peace when things feel heavy, courage when life gets confusing, people who treat your heart gently, and plenty of reasons to laugh until your stomach hurts.
+
+And just so we're clear: this birthday website is proof that you're important… but don't let it go to your head. You are still very much a lovable little troublemaker. 😌
+
+Whatever changes as life moves forward, I will always be grateful for the friendship we share. Here's to more stories, more silly moments, more photos we probably shouldn't post, and many more pages in this scrapbook.
+
+Happy birthday again, Blu Blu. Keep being wonderfully you. 🫶</p>
+    <p class="signature">Always cheering for you,<br>Your bestie ♡</p>
+    <button class="secondary" id="celebrateBtn" type="button">Make a little birthday magic ✨</button>
+  </article>
+</section>
+</main>
+<footer>made from memories, wrapped in love <span class="heart">♡</span><br><span style="font-size:.75rem">P.S. the best memories are still ahead of us.</span></footer>
+</div>
+
+<audio id="song" loop preload="none"></audio>
+<script>
+/*
+IPHONE PERSONALISATION:
+• Upload three photos into the SAME repository, named photo1.jpg, photo2.jpg, photo3.jpg.
+• To enable music, upload a legally obtained audio file you are allowed to use, named song.mp3.
+• The requested song is "I'll Be There for You" (TV version). This template does NOT include the copyrighted recording. Use an audio file you have rights/permission to host, or link to an authorised music service instead.
+• Riddle answer is friendship. This is a fun reveal, not secure password protection; page source can be inspected.
+*/
+const MUSIC_FILE = "song.mp3"; // Replace with your own permitted audio filename, or set to "" to disable.
+const song = document.getElementById("song");
+const musicBtn = document.getElementById("musicBtn");
+song.src = MUSIC_FILE;
+musicBtn.addEventListener("click", async () => {
+  if (!MUSIC_FILE) { alert("Add a permitted audio file and set MUSIC_FILE to its filename."); return; }
+  if (song.paused) {
+    try { await song.play(); musicBtn.textContent = "♫ Pause our song"; musicBtn.setAttribute("aria-pressed","true"); }
+    catch { alert("The audio file isn't available yet. Upload song.mp3 to this repository, then try again."); }
+  } else { song.pause(); musicBtn.textContent = "♫ Play our song"; musicBtn.setAttribute("aria-pressed","false"); }
+});
+song.addEventListener("ended", () => { musicBtn.textContent = "♫ Play our song"; musicBtn.setAttribute("aria-pressed","false"); });
+
+document.getElementById("riddleForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const answer = document.getElementById("answer").value.trim().toLowerCase().replace(/[^a-z]/g,"");
+  const feedback = document.getElementById("feedback");
+  if (["friendship","ourfriendship"].includes(answer)) {
+    feedback.textContent = "You got it, Blu Blu! This page was always meant for you. 💗";
+    document.getElementById("secret").classList.add("show");
+    document.getElementById("secret").scrollIntoView({behavior:"smooth",block:"start"});
+    makeConfetti(45);
+  } else feedback.textContent = "Not quite, birthday girl! Hint: it's the bond we share. Try again 💕";
+});
+document.getElementById("celebrateBtn").addEventListener("click", () => makeConfetti(90));
+function makeConfetti(count) {
+  const symbols = ["♡","✿","✨","♥","🌸"];
+  for (let i=0;i<count;i++) {
+    const item=document.createElement("span"); item.className="confetti";
+    item.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    item.style.left=Math.random()*100+"vw";
+    item.style.animationDuration=(2.5+Math.random()*3)+"s";
+    item.style.fontSize=(14+Math.random()*18)+"px";
+    document.body.appendChild(item); setTimeout(()=>item.remove(),6000);
+  }
+}
+</script>
+</body>
+</html>
